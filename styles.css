@@ -1,0 +1,179 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background: #b22222;
+  padding: 1rem 2rem;
+  color: #fff;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #ffe5e5;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: #b22222;
+}
+
+.hero p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Onboarding Section */
+.features {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.feature-slider {
+  position: relative;
+  max-width: 400px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.feature-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.feature-card {
+  min-width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.feature-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Slider Nav Buttons */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #b22222;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: #8b1a1a;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #b22222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive: Mobile-first */
+@media (max-width: 600px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .nav-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Responsive: Desktop improvements */
+@media (min-width: 768px) {
+  .feature-slider {
+    max-width: 500px;
+  }
+}

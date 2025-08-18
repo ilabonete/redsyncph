@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedSync PH</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-title">
+      <img src="redsynclogo/redsynclogo.png" alt="RedSync PH Logo" class="logo">
+      <h1>RedSync PH</h1>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Digital Monitoring for Hemophilia Patients in the Philippines</h2>
+    <p>Your health, simplified with smart tracking, reminders, and support tools.</p>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section class="dashboard-section">
+    <h2>Dashboards</h2>
+    <div class="dashboard-container">
+      <div class="dashboard-card">
+        <img src="dashboard/patientdashboard.jpg" alt="Patient Dashboard">
+        <p>Patient Dashboard</p>
+      </div>
+      <div class="dashboard-card">
+        <img src="dashboard/doctordashboard.jpg" alt="Doctor Dashboard">
+        <p>Doctor Dashboard</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding Section -->
+  <section class="features">
+    <h2>Onboarding Screens</h2>
+    <div class="feature-slider">
+      <button class="nav-btn prev">❮</button>
+      <div class="feature-track">
+        <div class="feature-card"><img src="onboarding/onboarding1.png" alt="Onboarding Step 1"></div>
+        <div class="feature-card"><img src="onboarding/onboarding2.png" alt="Onboarding Step 2"></div>
+        <div class="feature-card"><img src="onboarding/onboarding3.png" alt="Onboarding Step 3"></div>
+        <div class="feature-card"><img src="onboarding/onboarding4.png" alt="Onboarding Step 4"></div>
+        <div class="feature-card"><img src="onboarding/onboarding5.png" alt="Onboarding Step 5"></div>
+        <div class="feature-card"><img src="onboarding/onboarding6.png" alt="Onboarding Step 6"></div>
+      </div>
+      <button class="nav-btn next">❯</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 RedSync PH. All rights reserved.</p>
+  </footer>
+
+  <!-- Slider Script -->
+  <script>
+    const track = document.querySelector('.feature-track');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const totalSlides = track.children.length;
+    let index = 0;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (index < totalSlides - 1) {
+        index++;
+        updateSlider();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        updateSlider();
+      }
+    });
+  </script>
+</body>
+</html>
