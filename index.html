@@ -22,19 +22,21 @@
   </section>
 
   <!-- Dashboard Section -->
-  <section class="dashboard-section">
-    <h2>Dashboards</h2>
-    <div class="dashboard-container">
-      <div class="dashboard-card">
-        <img src="dashboard/patientdashboard.jpg" alt="Patient Dashboard">
-        <p>Patient Dashboard</p>
-      </div>
-      <div class="dashboard-card">
-        <img src="dashboard/doctordashboard.jpg" alt="Doctor Dashboard">
-        <p>Doctor Dashboard</p>
-      </div>
+<section class="dashboard-section">
+  <h2 class="dashboard-title">Dashboard Screens</h2>
+  <div class="dashboard-slider">
+    <div class="dashboard-card active">
+      <img src="dashboard/patientdashboard.jpg" alt="Dashboard Feature 1">
+      <button id="dashboard-prev" class="dashboard-btn prev">❮</button>
+      <button id="dashboard-next" class="dashboard-btn next">❯</button>
     </div>
-  </section>
+    <div class="dashboard-card">
+      <img src="dashboard/doctordashboard.jpg" alt="Dashboard Feature 2">
+      <button id="dashboard-prev" class="dashboard-btn prev">❮</button>
+      <button id="dashboard-next" class="dashboard-btn next">❯</button>
+    </div>
+  </div>
+</section>
 
   <!-- Onboarding Section -->
   <section class="features">
@@ -52,7 +54,17 @@
       <button class="nav-btn next">❯</button>
     </div>
   </section>
-
+  
+    <section class="about">
+    <h2>About RedSync PH</h2>
+    <p>
+      RedSync PH is a digital health platform built for Filipino patients living with Hemophilia. 
+      It helps manage bleeding episodes, treatments, and medications with smart tracking, reminders, and dosage tools. 
+      With an integrated AI Chatbot, patients and caregivers can easily access guidance and support anytime. 
+      Our mission is to simplify hemophilia care and improve quality of life through technology.
+    </p>
+  </section>
+  
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 RedSync PH. All rights reserved.</p>
@@ -84,5 +96,39 @@
       }
     });
   </script>
+
+<script>
+  // DASHBOARD slider logic (separate from onboarding)
+  (function () {
+    const dashboardCards = document.querySelectorAll(".dashboard-card");
+    const dashboardPrevBtn = document.getElementById("dashboard-prev");
+    const dashboardNextBtn = document.getElementById("dashboard-next");
+    let currentDashboardIndex = 0;
+
+    if (!dashboardCards.length || !dashboardPrevBtn || !dashboardNextBtn) return;
+
+    function showDashboard(i) {
+      dashboardCards.forEach((card, idx) => {
+        card.classList.toggle("active", idx === i);
+      });
+    }
+
+    dashboardPrevBtn.addEventListener("click", () => {
+      currentDashboardIndex =
+        (currentDashboardIndex - 1 + dashboardCards.length) % dashboardCards.length;
+      showDashboard(currentDashboardIndex);
+    });
+
+    dashboardNextBtn.addEventListener("click", () => {
+      currentDashboardIndex =
+        (currentDashboardIndex + 1) % dashboardCards.length;
+      showDashboard(currentDashboardIndex);
+    });
+
+    // init
+    showDashboard(currentDashboardIndex);
+  })();
+</script>
+
 </body>
 </html>

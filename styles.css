@@ -9,6 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background: #fff;
+  text-align: center;
   color: #333;
 }
 
@@ -48,33 +49,88 @@ body {
 }
 
 /* Dashboard Section */
-.dashboard-section {
-  padding: 2.5rem 1rem;
+.dashboard {
   text-align: center;
+  padding: 2.5rem 1rem;
+  margin: 0 auto;
 }
 
+.dashboard h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111827;
+}
+.dashboard-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 25px;  /* ⬅️ adjust this number for how low you want */
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+
 .dashboard-container {
+  position: relative;
+  max-width: 420px;   /* unified with onboarding */
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 1.5rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dashboard-card {
+  display: none;
   background: #fff;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-  width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.dashboard-card.active {
+  display: block;
 }
 
 .dashboard-card img {
   width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
+  max-width: 400px;   /* same as onboarding */
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  margin: 0 auto;
+  display: block;
 }
+
+/* Dashboard Nav Buttons - same style as onboarding */
+.dashboard-card {
+  position: relative; /* allows buttons to overlay the image */
+}
+
+.dashboard-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #b22222;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.dashboard-btn:hover {
+  background: #8b1a1a;
+}
+
+.dashboard-btn.prev { left: 10px; }
+.dashboard-btn.next { right: 10px; }
+
 
 /* Onboarding Section */
 .features {
@@ -85,7 +141,7 @@ body {
 
 .feature-slider {
   position: relative;
-  max-width: 400px;
+  max-width: 420px;  /* unified with dashboard */
   margin: 30px auto;
   overflow: hidden;
 }
@@ -100,14 +156,16 @@ body {
   padding: 20px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .feature-card img {
   width: 100%;
+  max-width: 400px;  /* same as dashboard */
   height: auto;
   object-fit: contain;
   border-radius: 10px;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Slider Nav Buttons */
@@ -132,12 +190,29 @@ body {
   background: #8b1a1a;
 }
 
-.prev {
-  left: 10px;
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* About Section */
+.about {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #fff5f5;
+  border-top: 2px solid #f0b2b2;
 }
 
-.next {
-  right: 10px;
+.about h2 {
+  font-size: 2rem;
+  color: #b22222;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
 }
 
 /* Footer */
@@ -156,13 +231,8 @@ body {
     text-align: center;
   }
 
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
+  .hero h2 { font-size: 1.5rem; }
+  .hero p { font-size: 1rem; }
 
   .nav-btn {
     width: 28px;
@@ -173,7 +243,12 @@ body {
 
 /* Responsive: Desktop improvements */
 @media (min-width: 768px) {
-  .feature-slider {
-    max-width: 500px;
+  .feature-slider, .dashboard-container {
+    max-width: 520px; /* scale up consistently */
+  }
+
+  .feature-card img,
+  .dashboard-card img {
+    max-width: 480px;
   }
 }
