@@ -22,40 +22,41 @@
   </section>
 
   <!-- Dashboard Section -->
-<section class="dashboard-section">
-  <h2 class="dashboard-title">Dashboard Screens</h2>
-  <div class="dashboard-slider">
-    <div class="dashboard-card active">
-      <img src="dashboard/patientdashboard.jpg" alt="Dashboard Feature 1">
-      <button id="dashboard-prev" class="dashboard-btn prev">❮</button>
-      <button id="dashboard-next" class="dashboard-btn next">❯</button>
+  <section class="dashboard-section">
+    <h2 class="dashboard-title">Dashboard Screens</h2>
+    <div class="slider dashboard-slider">
+      <button class="slider-btn prev">❮</button>
+
+      <div class="slider-track">
+        <div class="slider-card active"><img src="dashboard/patientdashboard.jpg" alt="Dashboard 1"></div>
+        <div class="slider-card"><img src="dashboard/doctordashboard.jpg" alt="Dashboard 2"></div>
+      </div>
+
+      <button class="slider-btn next">❯</button>
     </div>
-    <div class="dashboard-card">
-      <img src="dashboard/doctordashboard.jpg" alt="Dashboard Feature 2">
-      <button id="dashboard-prev" class="dashboard-btn prev">❮</button>
-      <button id="dashboard-next" class="dashboard-btn next">❯</button>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Onboarding Section -->
   <section class="features">
     <h2>Onboarding Screens</h2>
-    <div class="feature-slider">
-      <button class="nav-btn prev">❮</button>
-      <div class="feature-track">
-        <div class="feature-card"><img src="onboarding/onboarding1.png" alt="Onboarding Step 1"></div>
-        <div class="feature-card"><img src="onboarding/onboarding2.png" alt="Onboarding Step 2"></div>
-        <div class="feature-card"><img src="onboarding/onboarding3.png" alt="Onboarding Step 3"></div>
-        <div class="feature-card"><img src="onboarding/onboarding4.png" alt="Onboarding Step 4"></div>
-        <div class="feature-card"><img src="onboarding/onboarding5.png" alt="Onboarding Step 5"></div>
-        <div class="feature-card"><img src="onboarding/onboarding6.png" alt="Onboarding Step 6"></div>
+    <div class="slider onboarding-slider">
+      <button class="slider-btn prev">❮</button>
+
+      <div class="slider-track">
+        <div class="slider-card"><img src="onboarding/onboarding1.png" alt="Onboarding 1"></div>
+        <div class="slider-card"><img src="onboarding/onboarding2.png" alt="Onboarding 2"></div>
+        <div class="slider-card"><img src="onboarding/onboarding3.png" alt="Onboarding 3"></div>
+        <div class="slider-card"><img src="onboarding/onboarding4.png" alt="Onboarding 4"></div>
+        <div class="slider-card"><img src="onboarding/onboarding5.png" alt="Onboarding 5"></div>
+        <div class="slider-card"><img src="onboarding/onboarding6.png" alt="Onboarding 6"></div>
       </div>
-      <button class="nav-btn next">❯</button>
+
+      <button class="slider-btn next">❯</button>
     </div>
   </section>
-  
-    <section class="about">
+
+  <!-- About Section -->
+  <section class="about">
     <h2>About RedSync PH</h2>
     <p>
       RedSync PH is a digital health platform built for Filipino patients living with Hemophilia. 
@@ -64,71 +65,12 @@
       Our mission is to simplify hemophilia care and improve quality of life through technology.
     </p>
   </section>
-  
+
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 RedSync PH. All rights reserved.</p>
   </footer>
 
-  <!-- Slider Script -->
-  <script>
-    const track = document.querySelector('.feature-track');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const totalSlides = track.children.length;
-    let index = 0;
-
-    function updateSlider() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      if (index < totalSlides - 1) {
-        index++;
-        updateSlider();
-      }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (index > 0) {
-        index--;
-        updateSlider();
-      }
-    });
-  </script>
-
-<script>
-  // DASHBOARD slider logic (separate from onboarding)
-  (function () {
-    const dashboardCards = document.querySelectorAll(".dashboard-card");
-    const dashboardPrevBtn = document.getElementById("dashboard-prev");
-    const dashboardNextBtn = document.getElementById("dashboard-next");
-    let currentDashboardIndex = 0;
-
-    if (!dashboardCards.length || !dashboardPrevBtn || !dashboardNextBtn) return;
-
-    function showDashboard(i) {
-      dashboardCards.forEach((card, idx) => {
-        card.classList.toggle("active", idx === i);
-      });
-    }
-
-    dashboardPrevBtn.addEventListener("click", () => {
-      currentDashboardIndex =
-        (currentDashboardIndex - 1 + dashboardCards.length) % dashboardCards.length;
-      showDashboard(currentDashboardIndex);
-    });
-
-    dashboardNextBtn.addEventListener("click", () => {
-      currentDashboardIndex =
-        (currentDashboardIndex + 1) % dashboardCards.length;
-      showDashboard(currentDashboardIndex);
-    });
-
-    // init
-    showDashboard(currentDashboardIndex);
-  })();
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
