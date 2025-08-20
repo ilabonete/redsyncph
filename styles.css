@@ -18,6 +18,29 @@ body {
 .logo-title { display: flex; align-items: center; gap: 0.75rem; }
 .logo { width: 50px; height: auto; }
 
+@media (max-width: 600px) {
+  /* Header Fix: This group of rules ensures the header is a single, centered line. */
+  .header {
+    padding: 1rem 0.5rem; /* Reduced padding for a better fit on mobile */
+  }
+  
+  .logo-title {
+    display: flex; /* Enables flexible alignment */
+    flex-direction: row; /* Arranges items in a horizontal row */
+    align-items: center; /* Vertically centers the logo and text */
+    justify-content: center; /* Centers the entire group horizontally */
+    gap: 0.5rem; /* Creates a small space between the logo and the title */
+  }
+  
+  .logo {
+    width: 50px; /* Sets a fixed size for the logo on mobile */
+  }
+  
+  .logo-title h1 {
+    font-size: 1.25rem; /* Adjusts the font size to be proportional to the logo */
+  }
+}
+
 /* Hero */
 .hero {
   padding: 3rem 1rem;
@@ -107,4 +130,42 @@ body {
 @media (min-width: 768px) {
   .slider { max-width: 520px; }
   .slider-card img { max-width: 480px; }
+}
+/* New: Feature Icons Section */
+.feature-icons-section {
+  padding: 2rem 1rem;
+  background: #fdf5f5;
+}
+
+.feature-icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligns items to the top if they have different content heights */
+  gap: 1rem; /* Reduces the space between icons */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1; /* Makes each item take up an equal amount of space */
+  padding: 0 0.5rem; /* Reduces padding to save space */
+}
+
+.feature-icon {
+  width: 45px; /* Smaller icon size to fit on mobile */
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item span {
+  font-size: 0.75rem; /* Smaller font size for mobile */
+  font-weight: bold;
+  color: #b22222;
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if text is too long */
 }
